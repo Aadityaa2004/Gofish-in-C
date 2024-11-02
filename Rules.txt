@@ -1,0 +1,89 @@
+Each function, data type, and variable defined in each header file has a general description of its functionality/purpose, its input, and its output.  Note that the output also specifies return values when errors occur. Make sure to check for errors when calling functions. These functions, data types, and variables are not necessarily complete, and you may add additional functions and/or data structures. You may also alter the interfaces for the functions defined in the header files if necessary.  We have also included a Makefile for compilation. To compile the program, type make on the command line.  To run the program, type ./gofish on the command line.   To remove object files and the executable, type make clean.  To build the program with debugging symbols (so you can use gdb), type make debug.
+
+Partners. You may work with a partner on this assignment, although you do not have to.  If you work with a partner, you and your partner should divide up the implementation of the functions equally.  When you turn in your program, include a file called partner.txt that lists the partner names and the functions implemented by each partner.  Note that working with a partner is voluntary. Both partners should submit something to Moodle, where one will submit the source code (including partner.txt), and another one only submit the one with only one file (partner.txt) !
+
+Sample Gameplay
+
+Below is a sample of the game play, and an example of what your output should look like. Note that Player 1 is the human player, and Player 2 is the computer.  The red values are those entered by the human player via the keyboard. 
+
+ece373@ece373:~$ ./gofish
+Shuffling deck...
+
+Player 1's Hand - 5S 3H JC 9D 9H AS QC
+Player 1's Book -
+Player 2's Book -
+Player 1's turn, enter a Rank: 5
+    - Player 2 has no 5's
+    - Go Fish, Player 1 draws 7D
+    - Player 2's turn
+
+Player 1's Hand - 5S 3H JC 9D 9H AS QC 7D
+Player 1's Book -
+Player 2's Book -
+Player 2's turn, enter a Rank: 9
+    - Player 1 has 9D, 9H
+    - Player 2 has 9C, 9S
+    - Player 2 books 9
+    - Player 2 gets another turn
+
+Player 1's Hand - 5S 3H JC AS QC 7D
+Player 1's Book -
+Player 2's Book - 9
+Player 2's turn, enter a Rank: 4
+    - Player 1 has no 4's
+    - Go Fish, Player 2 draws a card
+    - Player 1's turn
+
+Player 1's Hand - 5S 3H JC AS QC 7D
+Player 1's Book -
+Player 2's Book - 9
+Player 1's turn, enter a Rank: 4
+Error - must have at least one card from rank to play
+Player 1's turn, enter a Rank: 3
+    - Player 2 has 3C 3D 3S
+    - Player 1 has 3H
+    - Player 1 books 3
+    - Player 1 gets another turn
+
+...
+
+Player 1's Hand - 8D
+Player 1's Book - 3 2 J A 6 Q
+Player 2's Book - 9 5 10 4 5 K
+Player 1's turn, enter a Rank: 8
+    - Player 2 has 8H, 8S, 8C
+    - Player 1 has 8D
+    - Player 1 books 8
+    - Player 1 gets another turn
+
+Player 1's Hand -
+Player 1's Book - 3 2 J A 6 Q 8
+Player 2's Book - 9 5 10 4 5 K
+Player 1 Wins! 7-6
+
+Do you want to play again [Y/N]: Y
+Shuffling deck....
+
+Player 1's Hand - 5S 3H JC 9D 9H AS QC
+Player 1's Book -
+Player 2's Book -
+Player 1's turn, enter a Rank: 5
+    - Player 2 has no 5's
+    - Go Fish, Player 1 draws 7D
+    - Player 2's turn
+
+....
+
+Player 1's Hand -
+Player 1's Book - 3 2 J A 6 Q 8
+Player 2's Book - 9 5 10 4 5 K
+Player 1 Wins! 7-6
+
+Do you want to play again [Y/N]: N
+Exiting.
+
+Game Rules
+
+Seven cards are dealt from a standard 52-card deck to each player.  The remaining cards in the deck are shared between the players, usually spread out in a disorderly pile referred to as the "ocean" or "pool". The player whose turn it is to play asks another player for his or her cards of a particular rank.   For example, Alice may ask, "Bob, do you have any threes?" Alice must have at least one card of the rank she requested.  Bob must hand over all cards of that rank if possible. If he has none, Bob tells Alice to "go fish" (or just simply "fish"), and Alice draws a card from the pool and places it in her own hand. Then it is the next player's turn � unless the card Alice drew is the card she asked for, in which case she shows it to the other players, and she gets another turn. When any player at any time has all four cards of one face value, it forms a "book," and the cards must be placed face up in front of that player.  The player that forms the book then gets another turn.  The first person to get 7 "books" wins the game!
+
+this is the instruction
